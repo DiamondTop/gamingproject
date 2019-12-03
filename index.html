@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Game Spotify</title>
+  <title>Great Game Adventure</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">              
 
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <script src="//use.edgefonts.net/source-code-pro:n4,n7.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery-ui.js"></script>
+  
 </head>
 <body>
+
+
+<!-- inserting the naviation bar  codes -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -40,7 +48,7 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Click here for better results</a>
                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
@@ -49,19 +57,72 @@
                   </form>
                 </div>
               </nav>
-            
+
+             
               <div class="container">
                 <div class="jumbotron">
                   <h1 class="display-4">Top Games based on your choice!!</h1>
+<!-- inserting the reeling image codes -->
+<h2 class="w3-center">Action Adventure Sports</h2>
+
+<div class="w3-content w3-section" style="max-width:300px">
+   
+  <img class="mySlides" src="test2.PNG", style="max-width: 100%;">
+  <img class="mySlides" src="test4.png", style="max-width: 100%;">
+  <img class="mySlides" src="test3.png", style="max-width: 100%;">
+</div>
+
+
+<script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 1000); // Change image every 4 seconds
+        }
+        </script>
+<!-- inserting the reeling image codes -->              
+
                   <p class="lead">This is placed inside a container</p>
-                  <div id="pie"></div>
+
+
+
+<!-- inserting pie chart here-->
+                  <!--calling the appcsv file--> 
+
+<h2>Streaming Music By Country</h2>
+<select id="selDataset" onchange="getData(this.value)">
+    <option value="dataset1">United States</option>
+    <option value="dataset2">UK</option>
+    <option value="dataset3">Canada</option>
+</select>
+                 <div id="pie"></div>
                   <script src="plots.js"></script>
                   <hr class="my-4">
                   <p>Here we can display some more text!</p>
                   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                  
                 </div>
+
+<!-- inserting bar chart -->
+<div id="svg-area">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+<!-- inserting bar chart -->
+
+
+
               </div>
-            
+          
+
             <div class="container">
               <h3 class="text-center">Thumbnails</h3>
                 <div class="row">
@@ -71,6 +132,7 @@
                       </div>
                       <div class="caption">
                           <h3>Thumbnail label</h3>
+
                           <p>...</p>
                           <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
@@ -143,7 +205,9 @@
                         <a class="nav-link" href="#">Link</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link disabled" href="#"> 
+                            
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -163,7 +227,7 @@
                           <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link disabled" href="#">Disabled</a>
+                          <a class="nav-link disabled" href="#">Click here for better results</a>
                         </li>
                       </ul>
                     </div>
@@ -211,19 +275,15 @@
                 </div>
 
 
-  <div id="svg-area"></div>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
-  
+<!-- Footer-->
+<div id="footer">
+        <p>The 4 Geekery &copy;2019</p>
+</div>
 
 
-  <h2>Streaming Music By Country</h2>
-  <select id="selDataset" onchange="getData(this.value)">
-      <option value="dataset1">United States</option>
-      <option value="dataset2">UK</option>
-      <option value="dataset3">Canada</option>
-  </select>
-  
+</div>  
 
 </body>
 </html>
+
+
