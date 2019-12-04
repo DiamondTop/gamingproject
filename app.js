@@ -24,25 +24,25 @@ var svg = d3.select("body")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-// Load data from hours-of-tv-watched.csv
-d3.csv("hours-of-tv-watched.csv").then(function(tvData) {
+// Load data from gamingproject.csv
+d3.csv("gamingproject.csv").then(function(tvData) {
 
   console.log(tvData);
 
   // Cast the hours value to a number for each piece of tvData
   tvData.forEach(function(d) {
-    d.hours = +d.hours;
+    d.rating = +d.rating;
   });
 
   // Configure a band scale for the horizontal axis with a padding of 0.1 (10%)
   var xBandScale = d3.scaleBand()
-    .domain(tvData.map(d => d.name))
+    .domain(tvData.map(d => d.slug))
     .range([0, chartWidth])
     .padding(0.1);
 
   // Create a linear scale for the vertical axis.
   var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(tvData, d => d.hours)])
+    .domain([0, d3.max(tvData, d => d.rating)])
     .range([chartHeight, 0]);
 
   // Create two new functions passing our scales in as arguments
@@ -66,10 +66,10 @@ d3.csv("hours-of-tv-watched.csv").then(function(tvData) {
     .enter()
     .append("rect")
     .attr("class", "bar")
-    .attr("x", d => xBandScale(d.name))
-    .attr("y", d => yLinearScale(d.hours))
+    .attr("x", d => xBandScale(d.slug))
+    .attr("y", d => yLinearScale(d.rating))
     .attr("width", xBandScale.bandwidth())
-    .attr("height", d => chartHeight - yLinearScale(d.hours));
+    .attr("height", d => chartHeight - yLinearScale(d.rating));
 
 }).catch(function(error) {
   console.log(error);
