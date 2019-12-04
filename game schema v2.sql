@@ -7,13 +7,40 @@ drop table game_theme;
 drop table game_mode;
 drop table game_game_mode;
 drop table franchise;
-drop table game_franchise;
 drop table artwork;
 drop table similar_game;
 drop table age_description;
 drop table age_rating;
 
--- Table 1
+-- Table 1 (primary_ds.csv)
+
+-- Table 2 (genres_ds.csv)
+
+-- Table 3 (genres.csv)
+
+-- Table 4 (themes_ds.csv)
+
+-- Table 5 (themes.csv)
+
+-- Table 6 (game_modes_ds.csv)
+
+-- Table 7 (game_modes.csv)
+
+-- Table 8 (franchise_ds.csv)
+
+-- Table 9 (artworks.csv)
+
+-- Table 10 (similar_games_ds.csv)
+
+-- Table 11 (age_description_ds.csv)
+
+-- Table 12(age_ratings.csv)
+
+
+
+
+
+-- Table 1 (primary_ds)
 create table primaryv1(
 	id int primary key not null,
 	aggregated_rating float,
@@ -37,7 +64,7 @@ create table primaryv1(
     );
 	select * from primaryv1
 
--- Table 2
+-- Table 2 (genres_ds)
 create table genre(
 	genre_id int primary key not null,
 	slug varchar(200),
@@ -45,7 +72,7 @@ create table genre(
     );
 select * from genre;
 
--- Table 3
+-- Table 3 (genres)
 create table game_genre(
 	game_id int not null,
 	genre int,
@@ -55,7 +82,7 @@ create table game_genre(
 select * from game_genre;
 
 
--- Table 4
+-- Table 4 (themes_ds)
 create table theme(
 	theme_id int primary key not null,
 	slug varchar(200),
@@ -63,7 +90,7 @@ create table theme(
     );
 select * from theme
 
--- Table 5
+-- Table 5 (themes)
 create table game_theme(
 	game_id int not null,
 	theme int,
@@ -75,7 +102,7 @@ select * from game_theme
 
 
 
--- Table 6
+-- Table 6 (game_modes_ds)
 create table game_mode(
 	id int primary key not null,
 	slug varchar(200),
@@ -83,7 +110,7 @@ create table game_mode(
     );
 select * from game_mode
 
--- Table 7
+-- Table 7 (game_modes)
 create table game_game_mode(
 	game_id int not null,
 	game_mode int, 
@@ -93,7 +120,7 @@ create table game_game_mode(
 select * from game_game_mode
 
 
--- Table 8
+-- Table 8 (franchise_ds)
 create table franchise(
 	franchise_id int primary key not null,
 	slug varchar(200), 
@@ -102,16 +129,8 @@ create table franchise(
 
 select * from franchise;
 
--- Table 9
-create table game_franchise(
-	game_id int not null,
-	franchise int,
-	foreign key (game_id) references primaryv1(id),
-	foreign key (franchise) references franchise(franchise_id)
-);
 
-select * from game_franchise;
--- Table 10
+-- Table 9 (artworks)
 create table artwork(
 	game_id int not null,	
 	url text,
@@ -119,7 +138,7 @@ create table artwork(
 );
 select * from artwork;
 
--- Table 11
+-- Table 10 (similar_games_ds)
 create table similar_game(
 	similar_id int,
 	game_id int not null,
@@ -130,7 +149,7 @@ select * from similar_game;
 
 
 
--- Table 12
+-- Table 11 (age_description_ds)
 create table age_description(
 	description_id int primary key not null,
     description varchar(200)
@@ -138,7 +157,7 @@ create table age_description(
 
 select * from age_description;
 
--- Table 13
+-- Table 12 (age_ratings)
 create table age_rating(
 	game_id int not null,
     age_rating int,
@@ -150,3 +169,5 @@ create table age_rating(
 select * from age_rating;
 
 	
+
+
